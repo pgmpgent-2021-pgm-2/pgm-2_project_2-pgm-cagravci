@@ -1,0 +1,60 @@
+*{
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+article{
+    padding: 1rem;
+    flex-basis: 20%;
+    flex-grow: 1;
+}
+
+section{
+    margin-bottom: 1rem;
+}
+
+li{
+    list-style: none;
+
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 0.5rem;
+}
+
+.users__list a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.users__list{
+    overflow-y: scroll;
+    height: 95vh;
+}
+
+.inbox__list{
+    overflow-y: scroll;
+    height: 40vh;
+}
+
+.outbox__list{
+    overflow-y: scroll;
+    height: 40vh;
+}
+
+.no-matches__list{
+    overflow-y: scroll;
+    height: 40vh;
+}
+
+.matches__list{
+    overflow-y: scroll;
+    height: 40vh;
+}

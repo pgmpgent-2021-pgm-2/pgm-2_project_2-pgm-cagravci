@@ -30,7 +30,7 @@ router.get('/users/:userId/matches', matchController.getMatchesFromUserById);
 Routes for messages
 */
 router.get('/messages', messageController.getMessages);
-router.get('/messages/:messageId', messageController.getMessageById);
+router.get('/messages/:messageId', messageController.getMessageById); 
 router.post('/messages', messageController.createMessage);
 router.put('/messages/:messageId', messageController.updateMessage);
 router.delete('/messages/:messageId', messageController.deleteMessage);
