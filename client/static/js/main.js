@@ -104,6 +104,7 @@
                     "message": $sendMessageForm[0].value
                 }
                 await this.tinderApi.addMessageBetweenUsers(messageToAdd)
+                this.fetchConversationFromUser($sendMessageForm.dataset.senderid,$sendMessageForm.dataset.receiverid)
             })
         },
         async fetchMatchesFromUser(userId) {
