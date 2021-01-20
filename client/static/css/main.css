@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: #000;
+}
 main{
     display: flex;
     justify-content: space-between;
@@ -14,10 +18,12 @@ article{
     padding: 1rem;
     flex-basis: 20%;
     flex-grow: 1;
+    border: 1px solid #000;
 }
 
 section{
     margin-bottom: 1rem;
+    border-bottom: 1px solid #000;
 }
 
 li{

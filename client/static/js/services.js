@@ -23,9 +23,7 @@ function TinderApi() {
     }
   };
 
-  this.getSentMessagesFromUser = async (userId) => {
-    //didn't use EZ
-  };
+  this.getSentMessagesFromUser = async (userId) => {};
 
   this.getConversationBetweenUsers = async (userId, friendId) => {
     try {
@@ -42,7 +40,29 @@ function TinderApi() {
 
   };
 
-  this.addMessageBetweenUsers = async (userId, friendId, message) => {};
+  this.addMessageBetweenUsers = async (obj) => {
+    try{
+      const messageToAdd = {
+        "senderId": obj.userId,
+        "receiverId": obj.friendId,
+        "message": obj.message
+      }
+      const response = await fetch(`${TINDER_BASE_PATH}/messages`, {
+        "method": "POST",
+        "mode": "cors",
+        "headers": {
+          'Content-Type': 'application/json'
+        },
+        "body": JSON.stringify(messageToAdd)
+      });
+
+      const data = await response.json();
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   this.getMatchesForUser = async (userId) => {
     try {

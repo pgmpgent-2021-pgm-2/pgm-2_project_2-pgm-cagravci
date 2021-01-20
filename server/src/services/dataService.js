@@ -157,6 +157,28 @@ const getUserById = (userId) => {
         throw new HTTPError('cannot get message!', 500);
     } 
 }
+
+//cca: create a new conversation, POST message
+const createMessage = (message) => {
+    try{
+        //get all messages
+        const messages = readDataFromMessages();
+        //create a message
+        const messageToCreate = {
+            ...message,
+            id: uuidv4(),
+            createdAt: Date.now()
+        };
+        messages.push(messageToCreate);
+        // write messages array to the messages.json
+        fs.writeFileSync(filePathMessages, JSON.stringify(messages, null, 2));
+        //return the created message
+        return messageToCreate
+
+    } catch (error) {
+        throw new HTTPError('cannot create new message!', 500);
+    }
+}
 // Export all the methods of the data service
 module.exports = {
     getMatches,
@@ -166,4 +188,5 @@ module.exports = {
     getMessageById,
     getMatchesFromUserById,
     getUserById,
+    createMessage
 };

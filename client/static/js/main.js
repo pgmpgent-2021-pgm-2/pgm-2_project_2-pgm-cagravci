@@ -89,9 +89,25 @@
                 <li>
                 <p>${convo.message}</p>
                 </li>`
-            }).join('')
+            }).join('') + ` <form action="#" method="POST" id="message-send" data-senderId="${userId}" data-receiverId="${friendId}">
+                                <input id="message" name="message" type="text" placeholder="Write a message">
+                                <button type="submit">Send message!</button>
+                            </form>`
+
+            //add events for the form
+            let $sendMessageForm = document.querySelector('#message-send')
+            $sendMessageForm.addEventListener('submit', async e => {
+                e.preventDefault();
+                const messageToAdd = {
+                    "userId": $sendMessageForm.dataset.senderid,
+                    "friendId":  $sendMessageForm.dataset.receiverid,
+                    "message": $sendMessageForm[0].value
+                }
+                await this.tinderApi.addMessageBetweenUsers(messageToAdd)
+            })
         },
         async fetchMatchesFromUser(userId) {
+            //get the matches for main user
             this.matches = await this.tinderApi.getMatchesForUser(userId.id)
 
             let userInfoOfMatches = []
