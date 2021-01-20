@@ -64,3 +64,13 @@ li{
     overflow-y: scroll;
     height: 40vh;
 }
+
+.my-user{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.my-user h1 {
+    margin-right: 1rem;
+}

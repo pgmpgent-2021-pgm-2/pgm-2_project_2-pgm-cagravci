@@ -15,6 +15,11 @@
         },
         generateUIForUsers(users) {
             //populate users data
+            document.querySelector('.my-user').innerHTML += `
+            <h1>${this.myUser.firstName}</h1>
+            <h1>${this.myUser.lastName}</h1>
+            <img src="${this.myUser.picture.thumbnail}" />
+            `
             document.querySelector('.users__list').innerHTML = users.map(user => {
                 return `
                 <li>
